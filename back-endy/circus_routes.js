@@ -13,7 +13,7 @@ const apiRouter = express.Router();
 apiRouter.post("/players", (req,res)=> {
     //if no id ...
     if(req.body.login == "sign up") playerController.create(req,res) ;
-    if(req.body.login == "sign in") playerController.findOne(req,res);
+    if(req.body.login == "sign in") playerController.checkin(req,res);
 });
 
 //Read all players

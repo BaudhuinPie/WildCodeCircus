@@ -41,7 +41,7 @@ Player.findAll = (response) => {
     })
 }
 
-Player.findOne = (player, id,  response) => {
+Player.findOne = (id,  response) => {
     if (id) {
         dbSQL.query(`SELECT avatar, picture, lastConnection, wildCoins FROM Players WHERE id = ${id} `, (error, result)=> {  // scan other table too !
             if (error) {
@@ -52,19 +52,21 @@ Player.findOne = (player, id,  response) => {
                 console.log("find a list of players : ", result)
             response(null, result);
         })
-    } else {
-        dbSQL.query(`SELECT id FROM Players WHERE avatar = ${player.avatar} AND keyword= ${player.keyword} `, (error, result)=> {
-            if (error) {
-                console.log("db_error: ", error);
-                response(error, null);
-                return;
-            }
-                console.log("find a list of players : ", result)
-            response(null, result);
-        })
-    }
-    
 
+    }
+}
+Player.checkin = (player, response) => {
+    console.log(">>>>>>>>>>>", player.avatar)
+    dbSQL.query(`SELECT id FROM Players WHERE avatar ='${player.avatar}' AND keyword='${player.keyword}' `, (error, result)=> {
+        if (error) {
+            console.log("db_error: ", error);
+            response(error, null);
+            return;
+        }
+            console.log("find a list of players : ", result)
+            result[1] = true ; // is Connected
+        response(null, result);
+    })
 
 }
 
