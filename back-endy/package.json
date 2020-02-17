@@ -1,0 +1,24 @@
+{
+  "name": "server-code-circus",
+  "version": "1.0.0",
+  "description": "server for wild circus checkpoint",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaudhuinPie/WildCodeCircus.git"
+  },
+  "author": "BaudhuinPie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaudhuinPie/WildCodeCircus/issues"
+  },
+  "homepage": "https://github.com/BaudhuinPie/WildCodeCircus#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "github:mysqljs/mysql"
+  }
+}
